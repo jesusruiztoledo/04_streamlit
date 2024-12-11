@@ -1,5 +1,6 @@
 FROM python:3.10
-RUN pip install streamlit
 WORKDIR /app
-COPY src/* /app/
-ENTRYPOINT ["streamlit", "run", "app.py"]
+COPY ./* /app/
+RUN pip install -r requirements.txt
+# EXPOSE 8501
+ENTRYPOINT ["streamlit", "run", "streamlit_app.py"]
